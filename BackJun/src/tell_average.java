@@ -21,7 +21,7 @@ public class tell_average {
 		double answer = 0;
 	    int numOfcase = 0;
 	    receiver = br.readLine();
-	    numOfcase = Integer.parseInt(receiver);
+	    numOfcase = Integer.parseInt(receiver);//testcase 수 입력받기
 	    
 	   for(int i=0; i<numOfcase; i++) {
 		    receiver = br.readLine();   	
@@ -43,11 +43,18 @@ public class tell_average {
 	        
 	        percentage = count/points[0]*100;
 	        answer = Math.round((percentage*1000))/1000.0;	 
+	        bw.write("저장된 점수들은 \n");
+	        for(int j = 1; j <points.length; j++) {
+	        	bw.write( points[j] + " " );
+	        }
+	        bw.write("\n");
 	        bw.write("총합은 "+Double.toString(sum) + "\n");
 	        bw.write("평균은 "+Double.toString(average) + "\n");
 	        bw.write("평균을 넘는 학생 수는 "+Double.toString(count) + "\n");
 	        bw.write("순수 퍼센테이지는"+Double.toString(answer) + "\n");
 	        bw.write(Double.toString(answer) + "\n");
+	        sum =0;
+	        count = 0;
 	   }
         bw.flush(); //출려쿠
 	}
