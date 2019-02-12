@@ -42,8 +42,13 @@ public class tell_average {
 	        }
 	        
 	        percentage = count/points[0]*100;
-	        answer = Math.round((percentage*1000))/1000.0;	 
-	        bw.write("저장된 점수들은 \n");
+	        answer = Math.round((percentage*1000))/1000.0;
+	        if(answer%10==0 ) {
+	        	bw.write(Double.toString(answer)+"00%\n" );
+	        }
+	        else
+	        bw.write(Double.toString(answer) + "%\n");
+	        /*bw.write("저장된 점수들은 \n");
 	        for(int j = 1; j <points.length; j++) {
 	        	bw.write( points[j] + " " );
 	        }
@@ -51,8 +56,8 @@ public class tell_average {
 	        bw.write("총합은 "+Double.toString(sum) + "\n");
 	        bw.write("평균은 "+Double.toString(average) + "\n");
 	        bw.write("평균을 넘는 학생 수는 "+Double.toString(count) + "\n");
-	        bw.write("순수 퍼센테이지는"+Double.toString(answer) + "\n");
-	        bw.write(Double.toString(answer) + "\n");
+	        
+	        bw.write(Double.toString(answer) + "\n");*/
 	        sum =0;
 	        count = 0;
 	   }
