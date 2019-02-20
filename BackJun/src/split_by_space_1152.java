@@ -12,16 +12,25 @@ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 String[]  words;
 String sentence = "";
-String modifier;
+int count = 0;
 sentence = br.readLine(); //문자열 읽기
 
-//words = sentence.split("\\s+"); // 1개이상의 공백을 표현하는 정규식!   단어를 끊어 word 배열에 저장
-//words = sentence.split("\\s"); //1개의 공백 표현하는 정규식
 
-modifier = sentence.trim(); //문자열 맨 앞,뒤의 공백을 제거해주는 함수 trim! 갸꿀ㅋㅋㅋㅋ
-words = modifier.split(" "); //앞,뒤 공백을 제거하고 중간에 있는 공백을 기준으로 단어를 잘라 words배열에 저장!
+words = sentence.split(" "); // 공백을 기준으로 단어를 잘라서 words 배열에 저장
 
-bw.write(Integer.toString(words.length) + "\n"); // 배열의 길이 = 곧 단어의 갯수!이므로 길이 적기
+for(int i=0; i < words.length; i++) { //왜 인지는 모르나 공백이 인식되어 배열에 저장되는 경우가 있음 공백의 경우와,입력값없을때는 갯수를 카운트 하지 않는다! 
+	
+	
+	if(words[i].equals(" ") || words[i].isEmpty()) {
+		continue;
+	}
+	else {
+		count++;
+	}
+}
+bw.write(Integer.toString(count));
+
+
 bw.flush(); //출력
 	}
 	
